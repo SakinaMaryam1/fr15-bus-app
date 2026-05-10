@@ -15,6 +15,38 @@ function loadFavourite() {
   } catch { return null; }
 }
 
+// ── Front-facing bus SVG icon ─────────────────────────────────────────────────
+function BusIcon({ size = 72, color = "#4ade80" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      {/* Body */}
+      <rect x="8" y="8" width="48" height="38" rx="6" fill={color} opacity="0.15" stroke={color} strokeWidth="2"/>
+      {/* Roof */}
+      <rect x="12" y="8" width="40" height="6" rx="3" fill={color} opacity="0.3"/>
+      {/* Left window */}
+      <rect x="12" y="18" width="16" height="12" rx="2" fill={color} opacity="0.5"/>
+      {/* Right window */}
+      <rect x="36" y="18" width="16" height="12" rx="2" fill={color} opacity="0.5"/>
+      {/* Middle divider */}
+      <line x1="32" y1="18" x2="32" y2="30" stroke={color} strokeWidth="1.5" opacity="0.4"/>
+      {/* Front grille */}
+      <rect x="18" y="33" width="28" height="8" rx="2" fill={color} opacity="0.2" stroke={color} strokeWidth="1.5"/>
+      {/* Headlights */}
+      <rect x="12" y="34" width="5" height="5" rx="1" fill={color} opacity="0.8"/>
+      <rect x="47" y="34" width="5" height="5" rx="1" fill={color} opacity="0.8"/>
+      {/* Left wheel */}
+      <circle cx="18" cy="50" r="6" fill={color} opacity="0.2" stroke={color} strokeWidth="2"/>
+      <circle cx="18" cy="50" r="2.5" fill={color} opacity="0.6"/>
+      {/* Right wheel */}
+      <circle cx="46" cy="50" r="6" fill={color} opacity="0.2" stroke={color} strokeWidth="2"/>
+      <circle cx="46" cy="50" r="2.5" fill={color} opacity="0.6"/>
+      {/* Door */}
+      <rect x="27" y="33" width="10" height="13" rx="1" fill={color} opacity="0.3" stroke={color} strokeWidth="1"/>
+    </svg>
+  );
+}
+
 export default function App() {
   const favourite = loadFavourite();
 
@@ -135,21 +167,16 @@ export default function App() {
           flex: 1, display: "flex", flexDirection: "column",
           alignItems: "center", justifyContent: "center", padding: "0 28px 40px",
         }}>
+          {/* Front-facing bus icon */}
           <div style={{
-            width: "140px", height: "140px", borderRadius: "50%",
-            background: "#111f12", border: "0.5px solid #2a4a2e",
+            width: "150px", height: "150px", borderRadius: "50%",
+            background: "#111f12", border: "2px solid #2a4a2e",
             display: "flex", alignItems: "center", justifyContent: "center",
-            marginBottom: "32px", boxShadow: "0 0 48px rgba(74,222,128,.1)",
+            marginBottom: "32px", boxShadow: "0 0 48px rgba(74,222,128,.15)",
           }}>
-            <svg width="72" height="72" viewBox="0 0 24 24" fill="none"
-              stroke="#4ade80" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="1" y="3" width="15" height="13" rx="2"/>
-              <path d="M16 8h4l3 4v3h-7V8z"/>
-              <circle cx="5.5" cy="18.5" r="2.5"/>
-              <circle cx="18.5" cy="18.5" r="2.5"/>
-              <path d="M1 13h15M16 13h7"/>
-            </svg>
+            <BusIcon size={90} color="#4ade80" />
           </div>
+
           <div style={{
             background: "#162a18", border: "0.5px solid #2a4a2e", borderRadius: "20px",
             padding: "4px 14px", fontSize: "11px", color: "#4ade80",
@@ -157,12 +184,14 @@ export default function App() {
           }}>
             Route FR-15 · Islamabad
           </div>
+
           <h1 style={{
             fontSize: "28px", fontWeight: 600, color: "#e8f5e9",
             textAlign: "center", lineHeight: 1.3, marginBottom: "14px",
           }}>
             Your bus,<br />on time. Always.
           </h1>
+
           <p style={{
             fontSize: "13px", color: "#5a7a5e", textAlign: "center",
             lineHeight: 1.7, marginBottom: "40px",
@@ -171,6 +200,7 @@ export default function App() {
             Khanna Pul ↔ T-Chowk<br />
             Pick your stop. Never wait blind.
           </p>
+
           <button className="btn-primary" onClick={() => setScreen(SCREEN.PICKER)}>
             Get Started
           </button>
@@ -189,7 +219,9 @@ export default function App() {
   if (screen === SCREEN.PICKER) {
     return (
       <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-        <div style={{ padding: "16px 18px 10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+
+        {/* Header — pushed down with more top padding */}
+        <div style={{ padding: "28px 18px 10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{
             background: "#162a18", border: "0.5px solid #2a4a2e", borderRadius: "20px",
             padding: "5px 14px", fontSize: "12px", color: "#4ade80", fontWeight: 500,
@@ -204,10 +236,17 @@ export default function App() {
             {timeStr}
           </div>
         </div>
-        <DirectionToggle direction={direction} onChange={handleDirectionChange} />
-        <div style={{ flex: 1, overflowY: "auto" }}>
+
+        {/* Direction toggle — with spacing below header */}
+        <div style={{ padding: "4px 0 0" }}>
+          <DirectionToggle direction={direction} onChange={handleDirectionChange} />
+        </div>
+
+        {/* Stop list — fills all remaining space to just above nav */}
+        <div style={{ flex: 1, overflowY: "auto", paddingBottom: "8px" }}>
           <StopPicker direction={direction} stopIndex={stopIndex} onChange={handleStopPick} />
         </div>
+
         <nav className="bottom-nav">
           <NavIcon name="home"  active={false} onClick={() => setScreen(SCREEN.NEXT)} />
           <NavIcon name="times" active={false} onClick={() => { setScreen(SCREEN.NEXT); setActiveTab("times"); }} />
@@ -221,9 +260,9 @@ export default function App() {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
 
-      {/* Top bar */}
+      {/* Top bar — more top padding to push it down */}
       <div style={{
-        padding: "14px 16px 4px", display: "flex",
+        padding: "28px 16px 8px", display: "flex",
         alignItems: "center", gap: "8px", flexShrink: 0,
       }}>
         <button onClick={() => setScreen(SCREEN.PICKER)} style={{
@@ -248,7 +287,7 @@ export default function App() {
         </div>
 
         {/* Favourite star */}
-        <button onClick={toggleFavourite} title={isFav ? "Remove favourite" : "Save stop"} style={{
+        <button onClick={toggleFavourite} style={{
           width: "32px", height: "32px",
           background: isFav ? "#1e3a20" : "#111f12",
           border: `0.5px solid ${isFav ? "#4ade80" : "#1e3320"}`,
@@ -259,7 +298,7 @@ export default function App() {
         </button>
 
         {/* Notification bell */}
-        <button onClick={requestNotifications} title="5-min bus alerts" style={{
+        <button onClick={requestNotifications} style={{
           width: "32px", height: "32px",
           background: notifStatus === "granted" ? "#1e3a20" : "#111f12",
           border: `0.5px solid ${notifStatus === "granted" ? "#4ade80" : "#1e3320"}`,
@@ -277,6 +316,11 @@ export default function App() {
         }}>
           {timeStr}
         </div>
+      </div>
+
+      {/* Extra spacing between header and direction toggle */}
+      <div style={{ padding: "6px 0 0" }}>
+        <DirectionToggle direction={direction} onChange={handleDirectionChange} />
       </div>
 
       {/* Banners */}
@@ -297,11 +341,9 @@ export default function App() {
         </div>
       )}
 
-      <DirectionToggle direction={direction} onChange={handleDirectionChange} />
-
       {/* Tab switcher */}
       <div style={{
-        margin: "0 14px 10px", background: "#111f12",
+        margin: "10px 14px 10px", background: "#111f12",
         border: "0.5px solid #1e3320", borderRadius: "10px",
         padding: "3px", display: "flex", gap: "3px", flexShrink: 0,
       }}>
@@ -318,8 +360,8 @@ export default function App() {
         ))}
       </div>
 
-      {/* Content */}
-      <div style={{ flex: 1, overflowY: "auto" }}>
+      {/* Content — fills to just above nav */}
+      <div style={{ flex: 1, overflowY: "auto", paddingBottom: "8px" }}>
         {activeTab === "home" ? (
           <>
             <NextBusPanel arrivals={arrivals} nowSecs={nowSecs} direction={direction} stopIndex={stopIndex} />
