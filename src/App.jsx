@@ -165,7 +165,7 @@ export default function App() {
           </div>
           <div style={{
             background: "#162a18", border: "0.5px solid #2a4a2e", borderRadius: "20px",
-            padding: "4px 14px", fontSize: "18px", color: "#4ade80",
+            padding: "4px 14px", fontSize: "10px", color: "#4ade80",
             letterSpacing: ".1em", textTransform: "uppercase", marginBottom: "16px",
           }}>
             Route FR-15 · Islamabad
@@ -177,7 +177,7 @@ export default function App() {
             Your bus,<br />on time. Always.
           </h1>
           <p style={{
-            fontSize: "18px", color: "#5a7a5e", textAlign: "center",
+            fontSize: "10px", color: "#5a7a5e", textAlign: "center",
             lineHeight: 1.7, marginBottom: "40px",
           }}>
             Real-time arrivals for<br />
@@ -189,7 +189,7 @@ export default function App() {
             View Full Timetable
           </button>
         </div>
-        <div style={{ padding: "12px", textAlign: "center", fontSize: "18px", color: "#2d4a30" }}>
+        <div style={{ padding: "12px", textAlign: "center", fontSize: "10px", color: "#2d4a30" }}>
           32–33 daily trips · avg. 30 min headway
         </div>
       </div>
@@ -203,12 +203,12 @@ export default function App() {
         <div style={{ padding: "28px 18px 10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{
             background: "#162a18", border: "0.5px solid #2a4a2e", borderRadius: "20px",
-            padding: "5px 14px", fontSize: "18px", color: "#4ade80", fontWeight: 500,
+            padding: "5px 14px", fontSize: "10px", color: "#4ade80", fontWeight: 500,
           }}>
             🚌 FR-15 — Pick your stop
           </div>
           <div style={{
-            fontFamily: "monospace", fontSize: "18px", color: "#4a9c5a",
+            fontFamily: "monospace", fontSize: "10px", color: "#4a9c5a",
             background: "#111f12", border: "0.5px solid #1e3320",
             borderRadius: "10px", padding: "5px 12px",
           }}>
@@ -238,7 +238,7 @@ export default function App() {
 
       {/* Top bar */}
       <div style={{
-        padding: "28px 16px 6px", display: "flex",
+        padding: "28px 16px 14px", display: "flex",
         alignItems: "center", gap: "8px", flexShrink: 0,
       }}>
         <button onClick={() => setScreen(SCREEN.PICKER)} style={{
@@ -253,10 +253,10 @@ export default function App() {
           </svg>
         </button>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: "18px", fontWeight: 500, color: "#c8e6c9" }}>
+          <div style={{ fontSize: "14px", fontWeight: 500, color: "#c8e6c9" }}>
             {stops[stopIndex].name}
           </div>
-          <div style={{ fontSize: "18px", color: "#3d6b42", marginTop: "1px" }}>
+          <div style={{ fontSize: "10px", color: "#3d6b42", marginTop: "1px" }}>
             {direction === "forward" ? "Khanna Pul → T-Chowk" : "T-Chowk → Khanna Pul"}
           </div>
         </div>
@@ -265,7 +265,7 @@ export default function App() {
           background: isFav ? "#1e3a20" : "#111f12",
           border: `0.5px solid ${isFav ? "#4ade80" : "#1e3320"}`,
           borderRadius: "50%", display: "flex", alignItems: "center",
-          justifyContent: "center", cursor: "pointer", fontSize: "18px",
+          justifyContent: "center", cursor: "pointer", fontSize: "10px",
         }}>
           {isFav ? "⭐" : "☆"}
         </button>
@@ -274,12 +274,12 @@ export default function App() {
           background: notifStatus === "granted" ? "#1e3a20" : "#111f12",
           border: `0.5px solid ${notifStatus === "granted" ? "#4ade80" : "#1e3320"}`,
           borderRadius: "50%", display: "flex", alignItems: "center",
-          justifyContent: "center", cursor: "pointer", fontSize: "18px",
+          justifyContent: "center", cursor: "pointer", fontSize: "10px",
         }}>
           {notifStatus === "granted" ? "🔔" : "🔕"}
         </button>
         <div style={{
-          fontFamily: "monospace", fontSize: "18px", color: "#4a9c5a",
+          fontFamily: "monospace", fontSize: "10px", color: "#4a9c5a",
           background: "#111f12", border: "0.5px solid #1e3320",
           borderRadius: "8px", padding: "4px 10px",
         }}>
@@ -291,7 +291,7 @@ export default function App() {
       {isFav && (
         <div style={{
           margin: "0 14px 4px", background: "#162a18", border: "0.5px solid #2a4a2e",
-          borderRadius: "10px", padding: "7px 12px", fontSize: "18px", color: "#4ade80",
+          borderRadius: "10px", padding: "7px 12px", fontSize: "10px", color: "#4ade80",
         }}>
           ⭐ Saved — app opens here next time
         </div>
@@ -299,7 +299,7 @@ export default function App() {
       {notifStatus === "granted" && (
         <div style={{
           margin: "0 14px 4px", background: "#162a18", border: "0.5px solid #2a4a2e",
-          borderRadius: "10px", padding: "7px 12px", fontSize: "18px", color: "#4ade80",
+          borderRadius: "10px", padding: "7px 12px", fontSize: "10px", color: "#4ade80",
         }}>
           🔔 You'll be alerted 5 min before each bus
         </div>
@@ -316,7 +316,7 @@ export default function App() {
       }}>
         {[["home", "Next Bus"], ["times", "All Times"]].map(([tab, label]) => (
           <button key={tab} onClick={() => setActiveTab(tab)} style={{
-            flex: 1, padding: "8px", borderRadius: "8px", fontSize: "18px",
+            flex: 1, padding: "8px", borderRadius: "8px", fontSize: "10px",
             fontWeight: activeTab === tab ? 600 : 400, border: "none", cursor: "pointer",
             background: activeTab === tab ? "#1e3a20" : "transparent",
             color:      activeTab === tab ? "#4ade80" : "#3d6b42",
@@ -327,56 +327,53 @@ export default function App() {
         ))}
       </div>
 
-      {/* Content fills remaining space to nav */}
-      <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
+      {/* Content */}
+      <div style={{ flex: 1, overflowY: "auto" }}>
         {activeTab === "home" ? (
-          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+          <>
             <NextBusPanel arrivals={arrivals} nowSecs={nowSecs} direction={direction} stopIndex={stopIndex} />
 
             <div style={{
-              padding: "8px 16px 6px", fontSize: "18px", color: "#3d6b42",
+              padding: "8px 16px 6px", fontSize: "10px", color: "#3d6b42",
               letterSpacing: ".08em", textTransform: "uppercase",
             }}>
               Coming up
             </div>
 
-            {/* Cards fill to bottom */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "0 14px 8px" }}>
-              {upcomingBuses.slice(0, 4).map((bus, i) => {
-                const diff = bus.arrSecs - nowSecs;
-                return (
-                  <div key={i} style={{
-                    background: "#111f12", border: "0.5px solid #1e3320",
-                    borderRadius: "13px", padding: "14px",
-                    display: "flex", alignItems: "center", gap: "12px",
-                    opacity: 1 - i * 0.15,
-                    marginBottom: i < 3 ? "8px" : "0",
-                  }}>
-                    <div style={{
-                      width: "30px", height: "30px", borderRadius: "8px",
-                      background: "#0f1a0f", border: "0.5px solid #1e3320",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "18px", color: "#2d4a30", fontWeight: 600, flexShrink: 0,
-                    }}>#{bus.index}</div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: "18px", fontWeight: 500, fontFamily: "monospace", color: "#7a9e7e" }}>
-                        {minsToHHMM(Math.round(bus.arrMins))}
-                      </div>
-                      <div style={{ fontSize: "18px", color: "#2d4a30", marginTop: "2px" }}>
-                        → {stops[stops.length - 1].name}
-                      </div>
+            {upcomingBuses.slice(0, 3).map((bus, i) => {
+              const diff = bus.arrSecs - nowSecs;
+              return (
+                <div key={i} style={{
+                  margin: "0 14px 8px",
+                  background: "#111f12", border: "0.5px solid #1e3320",
+                  borderRadius: "13px", padding: "12px 14px",
+                  display: "flex", alignItems: "center", gap: "12px",
+                  opacity: 1 - i * 0.2,
+                }}>
+                  <div style={{
+                    width: "30px", height: "30px", borderRadius: "8px",
+                    background: "#0f1a0f", border: "0.5px solid #1e3320",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: "10px", color: "#2d4a30", fontWeight: 600, flexShrink: 0,
+                  }}>#{bus.index}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "16px", fontWeight: 500, fontFamily: "monospace", color: "#7a9e7e" }}>
+                      {minsToHHMM(Math.round(bus.arrMins))}
                     </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: "18px", fontWeight: 600, color: "#3d6b42" }}>
-                        {minsToHHMM(Math.round(diff / 60))}
-                      </div>
-                      <div style={{ fontSize: "18px", color: "#2d4a30" }}>away</div>
+                    <div style={{ fontSize: "10px", color: "#2d4a30", marginTop: "2px" }}>
+                      → {stops[stops.length - 1].name}
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ fontSize: "13px", fontWeight: 600, color: "#3d6b42" }}>
+                      {minsToHHMM(Math.round(diff / 60))}
+                    </div>
+                    <div style={{ fontSize: "9px", color: "#2d4a30" }}>away</div>
+                  </div>
+                </div>
+              );
+            })}
+          </>
         ) : (
           <Timetable arrivals={arrivals} nowSecs={nowSecs} direction={direction} stopIndex={stopIndex} />
         )}
