@@ -1,0 +1,121 @@
+/* ── Reset & base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #070e07;
+  color: #c8e6c9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  background: #0d1a0e;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0d1a0e; }
+::-webkit-scrollbar-thumb { background: #2a4a2e; border-radius: 2px; }
+
+/* ── Typography helpers ───────────────────────────────────────── */
+.text-green   { color: #4ade80; }
+.text-muted   { color: #3d6b42; }
+.text-primary { color: #e8f5e9; }
+.text-dim     { color: #5a7a5e; }
+
+/* ── Card ─────────────────────────────────────────────────────── */
+.card {
+  background: #111f12;
+  border: 0.5px solid #2a4a2e;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+/* ── Button ───────────────────────────────────────────────────── */
+.btn-primary {
+  width: 100%;
+  padding: 15px;
+  background: #4ade80;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0a1a0b;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover  { opacity: 0.9; }
+.btn-primary:active { opacity: 0.8; }
+
+.btn-ghost {
+  width: 100%;
+  padding: 13px;
+  background: transparent;
+  border: 0.5px solid #2a4a2e;
+  border-radius: 50px;
+  font-size: 14px;
+  color: #4a9c5a;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+.btn-ghost:hover { background: #111f12; }
+
+/* ── Live pulse dot ───────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: blink 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ── Progress bar ─────────────────────────────────────────────── */
+.progress-track {
+  height: 4px;
+  background: #1e3320;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  border-radius: 2px;
+  transition: width 1s linear;
+}
+
+/* ── Bottom nav ───────────────────────────────────────────────── */
+.bottom-nav {
+  background: #0a1a0b;
+  border-top: 0.5px solid #162a18;
+  padding: 10px 0 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-shrink: 0;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  color: #2d4a30;
+  cursor: pointer;
+  padding: 4px 16px;
+  border-radius: 8px;
+  transition: color 0.2s;
+}
+.nav-item.active { color: #4ade80; }
+.nav-item svg { width: 22px; height: 22px; }
