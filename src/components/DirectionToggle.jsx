@@ -22,7 +22,7 @@ export default function DirectionToggle({ direction, onChange }) {
             flex: 1,
             padding: "9px 4px",
             borderRadius: "9px",
-            fontSize: "10.5px",
+            fontSize: "18px",
             textAlign: "center",
             border: "none",
             cursor: "pointer",

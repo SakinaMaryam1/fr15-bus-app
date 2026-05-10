@@ -12,10 +12,10 @@ export default function NextBusPanel({ arrivals, nowSecs, direction, stopIndex }
   if (!next) {
     return (
       <div className="card" style={{ margin: "12px 14px", textAlign: "center" }}>
-        <div style={{ fontSize: "14px", color: "#3d6b42", padding: "20px 0" }}>
+        <div style={{ fontSize: "18px", color: "#3d6b42", padding: "20px 0" }}>
           No more buses today for this stop.
         </div>
-        <div style={{ fontSize: "12px", color: "#2d4a30", marginTop: "4px" }}>
+        <div style={{ fontSize: "18px", color: "#2d4a30", marginTop: "4px" }}>
           Service resumes tomorrow from 06:00
         </div>
       </div>
@@ -32,7 +32,7 @@ export default function NextBusPanel({ arrivals, nowSecs, direction, stopIndex }
       {/* Live row */}
       <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "14px" }}>
         <div className="live-dot" />
-        <span style={{ fontSize: "10px", color: "#ef4444", fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>
+        <span style={{ fontSize: "18px", color: "#ef4444", fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>
           Live Schedule
         </span>
       </div>
@@ -42,7 +42,7 @@ export default function NextBusPanel({ arrivals, nowSecs, direction, stopIndex }
         {isImminent && diffSecs > 0 ? "Now" : formatCountdown(diffSecs)}
       </div>
 
-      <div style={{ fontSize: "12px", color: "#4a9c5a", marginTop: "5px", marginBottom: "16px" }}>
+      <div style={{ fontSize: "18px", color: "#4a9c5a", marginTop: "5px", marginBottom: "16px" }}>
         {isImminent && diffSecs > 0
           ? `Arriving at ${stopName} now!`
           : `Arrives at ${minsToHHMM(Math.round(next.arrMins))} · on schedule`
@@ -56,8 +56,8 @@ export default function NextBusPanel({ arrivals, nowSecs, direction, stopIndex }
 
       {/* Trip info */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: "10px", color: "#3d6b42" }}>Current trip</span>
-        <span style={{ fontSize: "10px", color: "#4ade80", fontWeight: 500 }}>
+        <span style={{ fontSize: "18px", color: "#3d6b42" }}>Current trip</span>
+        <span style={{ fontSize: "18px", color: "#4ade80", fontWeight: 500 }}>
           {stops[0].name} → {terminus}
         </span>
       </div>

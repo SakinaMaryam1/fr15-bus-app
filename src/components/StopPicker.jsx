@@ -38,14 +38,14 @@ export default function StopPicker({ direction, stopIndex, onChange }) {
             border: "none",
             outline: "none",
             color: "#c8e6c9",
-            fontSize: "12px",
+            fontSize: "18px",
             width: "100%",
           }}
         />
         {search && (
           <button onClick={() => setSearch("")} style={{
             background: "none", border: "none", color: "#3d6b42",
-            cursor: "pointer", fontSize: "16px", lineHeight: 1,
+            cursor: "pointer", fontSize: "18px", lineHeight: 1,
           }}>×</button>
         )}
       </div>
@@ -53,7 +53,7 @@ export default function StopPicker({ direction, stopIndex, onChange }) {
       {/* Section label */}
       <div style={{
         padding: "0 16px 8px",
-        fontSize: "10px",
+        fontSize: "18px",
         color: "#3d6b42",
         letterSpacing: ".08em",
         textTransform: "uppercase",
@@ -106,7 +106,7 @@ export default function StopPicker({ direction, stopIndex, onChange }) {
               {/* Stop name */}
               <div style={{ flex: 1 }}>
                 <div style={{
-                  fontSize: "12.5px",
+                  fontSize: "18px",
                   color:      isActive   ? "#e8f5e9"
                             : isTerminus ? "#4a9c5a"
                             : "#7a9e7e",
@@ -115,7 +115,7 @@ export default function StopPicker({ direction, stopIndex, onChange }) {
                   {stop.name}
                 </div>
                 {isActive && (
-                  <div style={{ fontSize: "10px", color: "#4ade80", marginTop: "2px" }}>
+                  <div style={{ fontSize: "18px", color: "#4ade80", marginTop: "2px" }}>
                     Your stop
                   </div>
                 )}

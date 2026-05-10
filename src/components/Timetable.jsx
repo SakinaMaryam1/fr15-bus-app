@@ -10,7 +10,7 @@ export default function Timetable({ arrivals, nowSecs, direction, stopIndex }) {
       {/* Section title */}
       <div style={{
         padding: "10px 16px 8px",
-        fontSize: "10px",
+        fontSize: "18px",
         color: "#3d6b42",
         letterSpacing: ".08em",
         textTransform: "uppercase",
@@ -58,7 +58,7 @@ export default function Timetable({ arrivals, nowSecs, direction, stopIndex }) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "10px",
+              fontSize: "18px",
               color:  isCurrent ? "#4ade80" : isNext ? "#4a9c5a" : "#2d4a30",
               fontWeight: 600,
               flexShrink: 0,
@@ -69,7 +69,7 @@ export default function Timetable({ arrivals, nowSecs, direction, stopIndex }) {
             {/* Time + destination */}
             <div style={{ flex: 1 }}>
               <div style={{
-                fontSize: "17px",
+                fontSize: "18px",
                 fontWeight: 500,
                 fontFamily: "monospace",
                 color:  isCurrent ? "#4ade80"
@@ -79,7 +79,7 @@ export default function Timetable({ arrivals, nowSecs, direction, stopIndex }) {
               }}>
                 {minsToHHMM(Math.round(bus.arrMins))}
               </div>
-              <div style={{ fontSize: "10px", color: "#3d6b42", marginTop: "2px" }}>
+              <div style={{ fontSize: "18px", color: "#3d6b42", marginTop: "2px" }}>
                 → {terminus} at {minsToHHMM(Math.round(bus.endMins))}
               </div>
             </div>
@@ -87,22 +87,22 @@ export default function Timetable({ arrivals, nowSecs, direction, stopIndex }) {
             {/* Countdown / status */}
             <div style={{ textAlign: "right", flexShrink: 0 }}>
               {isPast ? (
-                <div style={{ fontSize: "11px", color: "#2d4a30" }}>Done</div>
+                <div style={{ fontSize: "18px", color: "#2d4a30" }}>Done</div>
               ) : isCurrent ? (
                 <div>
-                  <div style={{ fontSize: "13px", fontWeight: 700, color: "#4ade80" }}>Now</div>
-                  <div style={{ fontSize: "9px", color: "#4a9c5a" }}>arriving</div>
+                  <div style={{ fontSize: "18px", fontWeight: 700, color: "#4ade80" }}>Now</div>
+                  <div style={{ fontSize: "18px", color: "#4a9c5a" }}>arriving</div>
                 </div>
               ) : (
                 <div>
                   <div style={{
-                    fontSize: "14px",
+                    fontSize: "18px",
                     fontWeight: 600,
                     color: isNext ? "#4ade80" : "#3d6b42",
                   }}>
                     {formatCountdown(diffSecs)}
                   </div>
-                  <div style={{ fontSize: "9.5px", color: "#2d4a30" }}>away</div>
+                  <div style={{ fontSize: "18px", color: "#2d4a30" }}>away</div>
                 </div>
               )}
             </div>

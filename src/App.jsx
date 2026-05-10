@@ -15,33 +15,21 @@ function loadFavourite() {
   } catch { return null; }
 }
 
-// ── Front-facing bus SVG icon ─────────────────────────────────────────────────
 function BusIcon({ size = 72, color = "#4ade80" }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      {/* Body */}
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="8" y="8" width="48" height="38" rx="6" fill={color} opacity="0.15" stroke={color} strokeWidth="2"/>
-      {/* Roof */}
       <rect x="12" y="8" width="40" height="6" rx="3" fill={color} opacity="0.3"/>
-      {/* Left window */}
       <rect x="12" y="18" width="16" height="12" rx="2" fill={color} opacity="0.5"/>
-      {/* Right window */}
       <rect x="36" y="18" width="16" height="12" rx="2" fill={color} opacity="0.5"/>
-      {/* Middle divider */}
       <line x1="32" y1="18" x2="32" y2="30" stroke={color} strokeWidth="1.5" opacity="0.4"/>
-      {/* Front grille */}
       <rect x="18" y="33" width="28" height="8" rx="2" fill={color} opacity="0.2" stroke={color} strokeWidth="1.5"/>
-      {/* Headlights */}
       <rect x="12" y="34" width="5" height="5" rx="1" fill={color} opacity="0.8"/>
       <rect x="47" y="34" width="5" height="5" rx="1" fill={color} opacity="0.8"/>
-      {/* Left wheel */}
       <circle cx="18" cy="50" r="6" fill={color} opacity="0.2" stroke={color} strokeWidth="2"/>
       <circle cx="18" cy="50" r="2.5" fill={color} opacity="0.6"/>
-      {/* Right wheel */}
       <circle cx="46" cy="50" r="6" fill={color} opacity="0.2" stroke={color} strokeWidth="2"/>
       <circle cx="46" cy="50" r="2.5" fill={color} opacity="0.6"/>
-      {/* Door */}
       <rect x="27" y="33" width="10" height="13" rx="1" fill={color} opacity="0.3" stroke={color} strokeWidth="1"/>
     </svg>
   );
@@ -167,7 +155,6 @@ export default function App() {
           flex: 1, display: "flex", flexDirection: "column",
           alignItems: "center", justifyContent: "center", padding: "0 28px 40px",
         }}>
-          {/* Front-facing bus icon */}
           <div style={{
             width: "150px", height: "150px", borderRadius: "50%",
             background: "#111f12", border: "2px solid #2a4a2e",
@@ -176,39 +163,33 @@ export default function App() {
           }}>
             <BusIcon size={90} color="#4ade80" />
           </div>
-
           <div style={{
             background: "#162a18", border: "0.5px solid #2a4a2e", borderRadius: "20px",
-            padding: "4px 14px", fontSize: "11px", color: "#4ade80",
+            padding: "4px 14px", fontSize: "18px", color: "#4ade80",
             letterSpacing: ".1em", textTransform: "uppercase", marginBottom: "16px",
           }}>
             Route FR-15 · Islamabad
           </div>
-
           <h1 style={{
             fontSize: "28px", fontWeight: 600, color: "#e8f5e9",
             textAlign: "center", lineHeight: 1.3, marginBottom: "14px",
           }}>
             Your bus,<br />on time. Always.
           </h1>
-
           <p style={{
-            fontSize: "13px", color: "#5a7a5e", textAlign: "center",
+            fontSize: "18px", color: "#5a7a5e", textAlign: "center",
             lineHeight: 1.7, marginBottom: "40px",
           }}>
             Real-time arrivals for<br />
             Khanna Pul ↔ T-Chowk<br />
             Pick your stop. Never wait blind.
           </p>
-
-          <button className="btn-primary" onClick={() => setScreen(SCREEN.PICKER)}>
-            Get Started
-          </button>
+          <button className="btn-primary" onClick={() => setScreen(SCREEN.PICKER)}>Get Started</button>
           <button className="btn-ghost" onClick={() => { setScreen(SCREEN.NEXT); setActiveTab("times"); }}>
             View Full Timetable
           </button>
         </div>
-        <div style={{ padding: "12px", textAlign: "center", fontSize: "10px", color: "#2d4a30" }}>
+        <div style={{ padding: "12px", textAlign: "center", fontSize: "18px", color: "#2d4a30" }}>
           32–33 daily trips · avg. 30 min headway
         </div>
       </div>
@@ -219,34 +200,25 @@ export default function App() {
   if (screen === SCREEN.PICKER) {
     return (
       <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-
-        {/* Header — pushed down with more top padding */}
         <div style={{ padding: "28px 18px 10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{
             background: "#162a18", border: "0.5px solid #2a4a2e", borderRadius: "20px",
-            padding: "5px 14px", fontSize: "12px", color: "#4ade80", fontWeight: 500,
+            padding: "5px 14px", fontSize: "18px", color: "#4ade80", fontWeight: 500,
           }}>
             🚌 FR-15 — Pick your stop
           </div>
           <div style={{
-            fontFamily: "monospace", fontSize: "13px", color: "#4a9c5a",
+            fontFamily: "monospace", fontSize: "18px", color: "#4a9c5a",
             background: "#111f12", border: "0.5px solid #1e3320",
             borderRadius: "10px", padding: "5px 12px",
           }}>
             {timeStr}
           </div>
         </div>
-
-        {/* Direction toggle — with spacing below header */}
-        <div style={{ padding: "4px 0 0" }}>
-          <DirectionToggle direction={direction} onChange={handleDirectionChange} />
-        </div>
-
-        {/* Stop list — fills all remaining space to just above nav */}
-        <div style={{ flex: 1, overflowY: "auto", paddingBottom: "8px" }}>
+        <DirectionToggle direction={direction} onChange={handleDirectionChange} />
+        <div style={{ flex: 1, overflowY: "auto", paddingBottom: "4px" }}>
           <StopPicker direction={direction} stopIndex={stopIndex} onChange={handleStopPick} />
         </div>
-
         <nav className="bottom-nav">
           <NavIcon name="home"  active={false} onClick={() => setScreen(SCREEN.NEXT)} />
           <NavIcon name="times" active={false} onClick={() => { setScreen(SCREEN.NEXT); setActiveTab("times"); }} />
@@ -257,12 +229,16 @@ export default function App() {
   }
 
   // ── NEXT BUS / TIMETABLE ───────────────────────────────────────────────────
+
+  // Get upcoming buses
+  const upcomingBuses = arrivals.filter((a) => a.arrSecs >= nowSecs - 30).slice(1, 10);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
 
-      {/* Top bar — more top padding to push it down */}
+      {/* Top bar */}
       <div style={{
-        padding: "28px 16px 8px", display: "flex",
+        padding: "28px 16px 6px", display: "flex",
         alignItems: "center", gap: "8px", flexShrink: 0,
       }}>
         <button onClick={() => setScreen(SCREEN.PICKER)} style={{
@@ -276,41 +252,34 @@ export default function App() {
             <path d="m15 18-6-6 6-6"/>
           </svg>
         </button>
-
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: "14px", fontWeight: 500, color: "#c8e6c9" }}>
+          <div style={{ fontSize: "18px", fontWeight: 500, color: "#c8e6c9" }}>
             {stops[stopIndex].name}
           </div>
-          <div style={{ fontSize: "10px", color: "#3d6b42", marginTop: "1px" }}>
+          <div style={{ fontSize: "18px", color: "#3d6b42", marginTop: "1px" }}>
             {direction === "forward" ? "Khanna Pul → T-Chowk" : "T-Chowk → Khanna Pul"}
           </div>
         </div>
-
-        {/* Favourite star */}
         <button onClick={toggleFavourite} style={{
           width: "32px", height: "32px",
           background: isFav ? "#1e3a20" : "#111f12",
           border: `0.5px solid ${isFav ? "#4ade80" : "#1e3320"}`,
           borderRadius: "50%", display: "flex", alignItems: "center",
-          justifyContent: "center", cursor: "pointer", fontSize: "15px",
+          justifyContent: "center", cursor: "pointer", fontSize: "18px",
         }}>
           {isFav ? "⭐" : "☆"}
         </button>
-
-        {/* Notification bell */}
         <button onClick={requestNotifications} style={{
           width: "32px", height: "32px",
           background: notifStatus === "granted" ? "#1e3a20" : "#111f12",
           border: `0.5px solid ${notifStatus === "granted" ? "#4ade80" : "#1e3320"}`,
           borderRadius: "50%", display: "flex", alignItems: "center",
-          justifyContent: "center", cursor: "pointer", fontSize: "15px",
+          justifyContent: "center", cursor: "pointer", fontSize: "18px",
         }}>
           {notifStatus === "granted" ? "🔔" : "🔕"}
         </button>
-
-        {/* Clock */}
         <div style={{
-          fontFamily: "monospace", fontSize: "12px", color: "#4a9c5a",
+          fontFamily: "monospace", fontSize: "18px", color: "#4a9c5a",
           background: "#111f12", border: "0.5px solid #1e3320",
           borderRadius: "8px", padding: "4px 10px",
         }}>
@@ -318,38 +287,36 @@ export default function App() {
         </div>
       </div>
 
-      {/* Extra spacing between header and direction toggle */}
-      <div style={{ padding: "6px 0 0" }}>
-        <DirectionToggle direction={direction} onChange={handleDirectionChange} />
-      </div>
-
       {/* Banners */}
       {isFav && (
         <div style={{
-          margin: "4px 14px 0", background: "#162a18", border: "0.5px solid #2a4a2e",
-          borderRadius: "10px", padding: "7px 12px", fontSize: "11px", color: "#4ade80",
+          margin: "0 14px 4px", background: "#162a18", border: "0.5px solid #2a4a2e",
+          borderRadius: "10px", padding: "7px 12px", fontSize: "18px", color: "#4ade80",
         }}>
           ⭐ Saved — app opens here next time
         </div>
       )}
       {notifStatus === "granted" && (
         <div style={{
-          margin: "4px 14px 0", background: "#162a18", border: "0.5px solid #2a4a2e",
-          borderRadius: "10px", padding: "7px 12px", fontSize: "11px", color: "#4ade80",
+          margin: "0 14px 4px", background: "#162a18", border: "0.5px solid #2a4a2e",
+          borderRadius: "10px", padding: "7px 12px", fontSize: "18px", color: "#4ade80",
         }}>
           🔔 You'll be alerted 5 min before each bus
         </div>
       )}
 
-      {/* Tab switcher */}
+      {/* Direction toggle — right below header, no extra gap */}
+      <DirectionToggle direction={direction} onChange={handleDirectionChange} />
+
+      {/* Tab switcher — right below direction toggle, no gap */}
       <div style={{
-        margin: "10px 14px 10px", background: "#111f12",
+        margin: "0 14px 8px", background: "#111f12",
         border: "0.5px solid #1e3320", borderRadius: "10px",
         padding: "3px", display: "flex", gap: "3px", flexShrink: 0,
       }}>
         {[["home", "Next Bus"], ["times", "All Times"]].map(([tab, label]) => (
           <button key={tab} onClick={() => setActiveTab(tab)} style={{
-            flex: 1, padding: "8px", borderRadius: "8px", fontSize: "11px",
+            flex: 1, padding: "8px", borderRadius: "8px", fontSize: "18px",
             fontWeight: activeTab === tab ? 600 : 400, border: "none", cursor: "pointer",
             background: activeTab === tab ? "#1e3a20" : "transparent",
             color:      activeTab === tab ? "#4ade80" : "#3d6b42",
@@ -360,50 +327,56 @@ export default function App() {
         ))}
       </div>
 
-      {/* Content — fills to just above nav */}
-      <div style={{ flex: 1, overflowY: "auto", paddingBottom: "8px" }}>
+      {/* Content fills remaining space to nav */}
+      <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
         {activeTab === "home" ? (
-          <>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
             <NextBusPanel arrivals={arrivals} nowSecs={nowSecs} direction={direction} stopIndex={stopIndex} />
+
             <div style={{
-              padding: "8px 16px 6px", fontSize: "10px", color: "#3d6b42",
+              padding: "8px 16px 6px", fontSize: "18px", color: "#3d6b42",
               letterSpacing: ".08em", textTransform: "uppercase",
             }}>
               Coming up
             </div>
-            {arrivals.filter((a) => a.arrSecs >= nowSecs - 30).slice(1, 4).map((bus, i) => {
-              const diff = bus.arrSecs - nowSecs;
-              return (
-                <div key={i} style={{
-                  margin: "0 14px 8px", background: "#111f12",
-                  border: "0.5px solid #1e3320", borderRadius: "13px",
-                  padding: "12px 14px", display: "flex", alignItems: "center",
-                  gap: "12px", opacity: 1 - i * 0.2,
-                }}>
-                  <div style={{
-                    width: "30px", height: "30px", borderRadius: "8px",
-                    background: "#0f1a0f", border: "0.5px solid #1e3320",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: "10px", color: "#2d4a30", fontWeight: 600, flexShrink: 0,
-                  }}>#{bus.index}</div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: "16px", fontWeight: 500, fontFamily: "monospace", color: "#7a9e7e" }}>
-                      {minsToHHMM(Math.round(bus.arrMins))}
+
+            {/* Cards fill to bottom */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "0 14px 8px" }}>
+              {upcomingBuses.slice(0, 4).map((bus, i) => {
+                const diff = bus.arrSecs - nowSecs;
+                return (
+                  <div key={i} style={{
+                    background: "#111f12", border: "0.5px solid #1e3320",
+                    borderRadius: "13px", padding: "14px",
+                    display: "flex", alignItems: "center", gap: "12px",
+                    opacity: 1 - i * 0.15,
+                    marginBottom: i < 3 ? "8px" : "0",
+                  }}>
+                    <div style={{
+                      width: "30px", height: "30px", borderRadius: "8px",
+                      background: "#0f1a0f", border: "0.5px solid #1e3320",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: "18px", color: "#2d4a30", fontWeight: 600, flexShrink: 0,
+                    }}>#{bus.index}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: "18px", fontWeight: 500, fontFamily: "monospace", color: "#7a9e7e" }}>
+                        {minsToHHMM(Math.round(bus.arrMins))}
+                      </div>
+                      <div style={{ fontSize: "18px", color: "#2d4a30", marginTop: "2px" }}>
+                        → {stops[stops.length - 1].name}
+                      </div>
                     </div>
-                    <div style={{ fontSize: "10px", color: "#2d4a30", marginTop: "2px" }}>
-                      → {stops[stops.length - 1].name}
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: "18px", fontWeight: 600, color: "#3d6b42" }}>
+                        {minsToHHMM(Math.round(diff / 60))}
+                      </div>
+                      <div style={{ fontSize: "18px", color: "#2d4a30" }}>away</div>
                     </div>
                   </div>
-                  <div style={{ textAlign: "right" }}>
-                    <div style={{ fontSize: "13px", fontWeight: 600, color: "#3d6b42" }}>
-                      {minsToHHMM(Math.round(diff / 60))}
-                    </div>
-                    <div style={{ fontSize: "9px", color: "#2d4a30" }}>away</div>
-                  </div>
-                </div>
-              );
-            })}
-          </>
+                );
+              })}
+            </div>
+          </div>
         ) : (
           <Timetable arrivals={arrivals} nowSecs={nowSecs} direction={direction} stopIndex={stopIndex} />
         )}
